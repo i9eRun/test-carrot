@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>동네상점 · 우리 동네 중고거래</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap bar">
+      <a class="brand" href="./"><span aria-hidden="true">⌂</span> 동네상점</a>
+      <button class="primary" id="write" type="button">＋ 판매글 쓰기</button>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <p class="location">⌖ 성수동</p>
+      <h1 id="title">우리 동네 중고거래</h1>
+      <p>가까운 이웃의 물건을 찾아보세요.</p>
+      <label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" aria-label="매물 검색" placeholder="찾고 있는 물건이 있나요?"></label>
+    </section>
+    <section aria-labelledby="list-title">
+      <div class="list-head"><h2 id="list-title">동네 매물</h2><span id="count" role="status"></span></div>
+      <div id="categories" class="categories" role="group" aria-label="카테고리"></div>
+      <div id="list" class="grid"></div>
+    </section>
+  </main>
+  <dialog id="detail" aria-labelledby="detail-title">
+    <div class="dialog-head"><h2 id="detail-title"></h2><button type="button" data-close aria-label="닫기">×</button></div>
+    <img id="detail-image" alt="">
+    <strong id="detail-price"></strong>
+    <p id="detail-meta" class="muted"></p>
+    <p id="detail-description"></p>
+  </dialog>
+  <dialog id="editor" aria-labelledby="editor-title">
+    <div class="dialog-head"><h2 id="editor-title">판매글 쓰기</h2><button type="button" data-close aria-label="닫기">×</button></div>
+    <form id="listing-form">
+      <label>사진 <input name="photo" type="file" accept="image/jpeg,image/png,image/webp" required></label>
+      <label>제목 <input name="title" maxlength="70" required></label>
+      <label>가격 (원) <input name="price" type="number" min="0" max="999999999" step="1" required></label>
+      <label>카테고리 <select name="category" required></select></label>
+      <label>설명 <textarea name="description" rows="4" maxlength="1000" required></textarea></label>
+      <p id="form-error" role="alert" hidden></p>
+      <button class="primary" type="submit">등록하기</button>
+    </form>
+  </dialog>
+</body>
+</html>
